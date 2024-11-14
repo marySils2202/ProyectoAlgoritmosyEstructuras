@@ -1,4 +1,4 @@
-﻿using ProyectoDS;
+﻿using ProyectoED;
 using ProyectoED.ProyectoDS;
 using System;
 using System.Collections.Generic;

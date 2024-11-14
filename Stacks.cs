@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoDS;
+using ProyectoED;
 using ProyectoED.ProyectoDS;
 
 namespace ProyectoED
