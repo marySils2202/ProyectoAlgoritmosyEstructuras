@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroOFC));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             groupBox13 = new GroupBox();
@@ -166,6 +172,67 @@
             btnFinalAgregar = new Button();
             btnInicioAgregar = new Button();
             tabPage3 = new TabPage();
+            groupBox33 = new GroupBox();
+            txtRefEliminarAr = new TextBox();
+            label27 = new Label();
+            pictureBox7 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            btnEliminarArbol = new Button();
+            btnAgregarArbol = new Button();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            label28 = new Label();
+            groupBox32 = new GroupBox();
+            rbArbolAVL = new RadioButton();
+            btnLimpiarArbol = new Button();
+            rbArbolBinario = new RadioButton();
+            groupBox25 = new GroupBox();
+            groupBox26 = new GroupBox();
+            btnShellDescAr = new Button();
+            btnShellAscAr = new Button();
+            groupBox27 = new GroupBox();
+            btnShakeDescAr = new Button();
+            btnShakeAscAr = new Button();
+            groupBox28 = new GroupBox();
+            btnQuickDesc = new Button();
+            btnQuickAsc = new Button();
+            groupBox29 = new GroupBox();
+            btnBubbleDesc = new Button();
+            btnBubbleAscAr = new Button();
+            groupBox30 = new GroupBox();
+            btnSelectionDescAr = new Button();
+            btnSelctionAscAr = new Button();
+            groupBox31 = new GroupBox();
+            btnHeapDescAr = new Button();
+            btnHeapAscAr = new Button();
+            groupBox24 = new GroupBox();
+            dgEmpleadosAr = new DataGridView();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
+            txtBuscarAr = new TextBox();
+            txtDireccionAr = new TextBox();
+            txtEdadAr = new TextBox();
+            txtTelefonoAr = new TextBox();
+            txtApellidoAr = new TextBox();
+            txtNombreArbol = new TextBox();
+            dataGridView1 = new DataGridView();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            txtBuscarArbol = new FontAwesome.Sharp.IconButton();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            label25 = new Label();
+            label26 = new Label();
+            pictureBox6 = new PictureBox();
             tabPage4 = new TabPage();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -202,6 +269,22 @@
             groupBox6.SuspendLayout();
             groupBox9.SuspendLayout();
             groupBox3.SuspendLayout();
+            tabPage3.SuspendLayout();
+            groupBox33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            groupBox32.SuspendLayout();
+            groupBox25.SuspendLayout();
+            groupBox26.SuspendLayout();
+            groupBox27.SuspendLayout();
+            groupBox28.SuspendLayout();
+            groupBox29.SuspendLayout();
+            groupBox30.SuspendLayout();
+            groupBox31.SuspendLayout();
+            groupBox24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgEmpleadosAr).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -547,8 +630,8 @@
             // dgEmpleados
             // 
             dgEmpleados.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dgEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = Color.White;
+            dgEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             dgEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgEmpleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgEmpleados.BackgroundColor = Color.White;
@@ -559,19 +642,19 @@
             dgEmpleados.Margin = new Padding(5, 6, 5, 6);
             dgEmpleados.Name = "dgEmpleados";
             dgEmpleados.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.White;
+            dataGridViewCellStyle14.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            dgEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             dgEmpleados.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(154, 209, 212);
-            dataGridViewCellStyle3.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dgEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(154, 209, 212);
+            dataGridViewCellStyle15.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dgEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle15;
             dgEmpleados.Size = new Size(737, 195);
             dgEmpleados.TabIndex = 171;
             // 
@@ -1450,8 +1533,8 @@
             // dgLista
             // 
             dgLista.AllowUserToAddRows = false;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.BackColor = Color.White;
+            dgLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             dgLista.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgLista.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgLista.BackgroundColor = Color.White;
@@ -1462,19 +1545,19 @@
             dgLista.Margin = new Padding(5, 6, 5, 6);
             dgLista.Name = "dgLista";
             dgLista.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = Color.White;
+            dataGridViewCellStyle17.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dgLista.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dgLista.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(154, 209, 212);
-            dataGridViewCellStyle6.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dgLista.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.BackColor = Color.FromArgb(154, 209, 212);
+            dataGridViewCellStyle18.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle18.ForeColor = Color.Black;
+            dgLista.RowsDefaultCellStyle = dataGridViewCellStyle18;
             dgLista.Size = new Size(667, 118);
             dgLista.TabIndex = 175;
             // 
@@ -1791,12 +1874,747 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(groupBox33);
+            tabPage3.Controls.Add(groupBox32);
+            tabPage3.Controls.Add(groupBox25);
+            tabPage3.Controls.Add(groupBox24);
+            tabPage3.Controls.Add(label26);
+            tabPage3.Controls.Add(pictureBox6);
             tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
             tabPage3.Size = new Size(1253, 796);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Algoritmos de Árboles ";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox33
+            // 
+            groupBox33.BackColor = Color.FromArgb(239, 241, 243);
+            groupBox33.Controls.Add(txtRefEliminarAr);
+            groupBox33.Controls.Add(label27);
+            groupBox33.Controls.Add(pictureBox7);
+            groupBox33.Controls.Add(pictureBox8);
+            groupBox33.Controls.Add(btnEliminarArbol);
+            groupBox33.Controls.Add(btnAgregarArbol);
+            groupBox33.Controls.Add(textBox4);
+            groupBox33.Controls.Add(textBox5);
+            groupBox33.Controls.Add(label28);
+            groupBox33.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox33.Location = new Point(20, 219);
+            groupBox33.Margin = new Padding(2);
+            groupBox33.Name = "groupBox33";
+            groupBox33.Padding = new Padding(2, 3, 2, 3);
+            groupBox33.Size = new Size(433, 70);
+            groupBox33.TabIndex = 178;
+            groupBox33.TabStop = false;
+            // 
+            // txtRefEliminarAr
+            // 
+            txtRefEliminarAr.Location = new Point(279, 25);
+            txtRefEliminarAr.Margin = new Padding(2);
+            txtRefEliminarAr.Name = "txtRefEliminarAr";
+            txtRefEliminarAr.Size = new Size(142, 23);
+            txtRefEliminarAr.TabIndex = 173;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.FromArgb(242, 244, 243);
+            label27.Location = new Point(546, 117);
+            label27.Margin = new Padding(2, 0, 2, 0);
+            label27.Name = "label27";
+            label27.Size = new Size(0, 17);
+            label27.TabIndex = 99;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.BackColor = Color.FromArgb(146, 180, 167);
+            pictureBox7.BackgroundImage = (Image)resources.GetObject("pictureBox7.BackgroundImage");
+            pictureBox7.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox7.Location = new Point(151, 18);
+            pictureBox7.Margin = new Padding(2);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(27, 32);
+            pictureBox7.TabIndex = 62;
+            pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.FromArgb(146, 180, 167);
+            pictureBox8.BackgroundImage = (Image)resources.GetObject("pictureBox8.BackgroundImage");
+            pictureBox8.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox8.Location = new Point(22, 19);
+            pictureBox8.Margin = new Padding(2);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(30, 30);
+            pictureBox8.TabIndex = 60;
+            pictureBox8.TabStop = false;
+            // 
+            // btnEliminarArbol
+            // 
+            btnEliminarArbol.Anchor = AnchorStyles.None;
+            btnEliminarArbol.BackColor = Color.FromArgb(146, 180, 167);
+            btnEliminarArbol.FlatAppearance.BorderSize = 0;
+            btnEliminarArbol.FlatStyle = FlatStyle.Flat;
+            btnEliminarArbol.Font = new Font("Arial Rounded MT Bold", 11.89565F);
+            btnEliminarArbol.ForeColor = Color.White;
+            btnEliminarArbol.Location = new Point(142, 14);
+            btnEliminarArbol.Margin = new Padding(2, 3, 2, 3);
+            btnEliminarArbol.Name = "btnEliminarArbol";
+            btnEliminarArbol.RightToLeft = RightToLeft.Yes;
+            btnEliminarArbol.Size = new Size(119, 42);
+            btnEliminarArbol.TabIndex = 58;
+            btnEliminarArbol.Text = "Eliminar";
+            btnEliminarArbol.TextAlign = ContentAlignment.MiddleLeft;
+            btnEliminarArbol.UseVisualStyleBackColor = false;
+            btnEliminarArbol.Click += btnEliminarArbol_Click;
+            // 
+            // btnAgregarArbol
+            // 
+            btnAgregarArbol.Anchor = AnchorStyles.None;
+            btnAgregarArbol.BackColor = Color.FromArgb(146, 180, 167);
+            btnAgregarArbol.FlatAppearance.BorderSize = 0;
+            btnAgregarArbol.FlatStyle = FlatStyle.Flat;
+            btnAgregarArbol.Font = new Font("Arial Rounded MT Bold", 11.89565F);
+            btnAgregarArbol.ForeColor = Color.White;
+            btnAgregarArbol.Location = new Point(17, 14);
+            btnAgregarArbol.Margin = new Padding(2, 3, 2, 3);
+            btnAgregarArbol.Name = "btnAgregarArbol";
+            btnAgregarArbol.Size = new Size(114, 42);
+            btnAgregarArbol.TabIndex = 56;
+            btnAgregarArbol.Text = "Agregar";
+            btnAgregarArbol.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregarArbol.UseVisualStyleBackColor = false;
+            btnAgregarArbol.Click += btnAgregarArbol_Click;
+            // 
+            // textBox4
+            // 
+            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.Font = new Font("Century Gothic", 12.22642F);
+            textBox4.Location = new Point(882, 36);
+            textBox4.Margin = new Padding(2);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(162, 20);
+            textBox4.TabIndex = 29;
+            // 
+            // textBox5
+            // 
+            textBox5.BorderStyle = BorderStyle.None;
+            textBox5.Font = new Font("Century Gothic", 12.22642F);
+            textBox5.Location = new Point(1009, 108);
+            textBox5.Margin = new Padding(2, 3, 2, 3);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(175, 20);
+            textBox5.TabIndex = 23;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.BackColor = Color.FromArgb(242, 244, 243);
+            label28.Location = new Point(8, 50);
+            label28.Margin = new Padding(2, 0, 2, 0);
+            label28.Name = "label28";
+            label28.Size = new Size(0, 17);
+            label28.TabIndex = 1;
+            // 
+            // groupBox32
+            // 
+            groupBox32.Anchor = AnchorStyles.None;
+            groupBox32.BackColor = Color.FromArgb(239, 241, 243);
+            groupBox32.Controls.Add(rbArbolAVL);
+            groupBox32.Controls.Add(btnLimpiarArbol);
+            groupBox32.Controls.Add(rbArbolBinario);
+            groupBox32.Location = new Point(20, 115);
+            groupBox32.Margin = new Padding(2);
+            groupBox32.Name = "groupBox32";
+            groupBox32.Padding = new Padding(2);
+            groupBox32.Size = new Size(368, 91);
+            groupBox32.TabIndex = 177;
+            groupBox32.TabStop = false;
+            groupBox32.Text = "Escoja un tipo de árbol";
+            // 
+            // rbArbolAVL
+            // 
+            rbArbolAVL.AutoSize = true;
+            rbArbolAVL.Location = new Point(162, 30);
+            rbArbolAVL.Margin = new Padding(2);
+            rbArbolAVL.Name = "rbArbolAVL";
+            rbArbolAVL.Size = new Size(77, 19);
+            rbArbolAVL.TabIndex = 123;
+            rbArbolAVL.TabStop = true;
+            rbArbolAVL.Text = "Árbol AVL";
+            rbArbolAVL.UseVisualStyleBackColor = true;
+            rbArbolAVL.CheckedChanged += txtNombreAr_CheckedChanged;
+            // 
+            // btnLimpiarArbol
+            // 
+            btnLimpiarArbol.Location = new Point(186, 53);
+            btnLimpiarArbol.Margin = new Padding(2);
+            btnLimpiarArbol.Name = "btnLimpiarArbol";
+            btnLimpiarArbol.Size = new Size(159, 23);
+            btnLimpiarArbol.TabIndex = 113;
+            btnLimpiarArbol.Text = "Limpiar Selección";
+            btnLimpiarArbol.UseVisualStyleBackColor = true;
+            // 
+            // rbArbolBinario
+            // 
+            rbArbolBinario.AutoSize = true;
+            rbArbolBinario.Location = new Point(21, 32);
+            rbArbolBinario.Margin = new Padding(2);
+            rbArbolBinario.Name = "rbArbolBinario";
+            rbArbolBinario.Size = new Size(94, 19);
+            rbArbolBinario.TabIndex = 120;
+            rbArbolBinario.TabStop = true;
+            rbArbolBinario.Text = "Árbol Binario";
+            rbArbolBinario.UseVisualStyleBackColor = true;
+            rbArbolBinario.CheckedChanged += rbArbolBinario_CheckedChanged;
+            // 
+            // groupBox25
+            // 
+            groupBox25.Anchor = AnchorStyles.None;
+            groupBox25.Controls.Add(groupBox26);
+            groupBox25.Controls.Add(groupBox27);
+            groupBox25.Controls.Add(groupBox28);
+            groupBox25.Controls.Add(groupBox29);
+            groupBox25.Controls.Add(groupBox30);
+            groupBox25.Controls.Add(groupBox31);
+            groupBox25.Location = new Point(2, 293);
+            groupBox25.Margin = new Padding(2);
+            groupBox25.Name = "groupBox25";
+            groupBox25.Padding = new Padding(2);
+            groupBox25.Size = new Size(451, 397);
+            groupBox25.TabIndex = 174;
+            groupBox25.TabStop = false;
+            groupBox25.Text = "Ordenamientos";
+            // 
+            // groupBox26
+            // 
+            groupBox26.Anchor = AnchorStyles.None;
+            groupBox26.Controls.Add(btnShellDescAr);
+            groupBox26.Controls.Add(btnShellAscAr);
+            groupBox26.Location = new Point(237, 280);
+            groupBox26.Margin = new Padding(2);
+            groupBox26.Name = "groupBox26";
+            groupBox26.Padding = new Padding(2);
+            groupBox26.Size = new Size(202, 95);
+            groupBox26.TabIndex = 178;
+            groupBox26.TabStop = false;
+            groupBox26.Text = "ShellSort";
+            // 
+            // btnShellDescAr
+            // 
+            btnShellDescAr.Location = new Point(9, 59);
+            btnShellDescAr.Margin = new Padding(2);
+            btnShellDescAr.Name = "btnShellDescAr";
+            btnShellDescAr.Size = new Size(159, 23);
+            btnShellDescAr.TabIndex = 114;
+            btnShellDescAr.Text = "Descendente";
+            btnShellDescAr.UseVisualStyleBackColor = true;
+            // 
+            // btnShellAscAr
+            // 
+            btnShellAscAr.Location = new Point(9, 30);
+            btnShellAscAr.Margin = new Padding(2);
+            btnShellAscAr.Name = "btnShellAscAr";
+            btnShellAscAr.Size = new Size(159, 23);
+            btnShellAscAr.TabIndex = 113;
+            btnShellAscAr.Text = "Ascendente";
+            btnShellAscAr.UseVisualStyleBackColor = true;
+            // 
+            // groupBox27
+            // 
+            groupBox27.Anchor = AnchorStyles.None;
+            groupBox27.Controls.Add(btnShakeDescAr);
+            groupBox27.Controls.Add(btnShakeAscAr);
+            groupBox27.Location = new Point(18, 280);
+            groupBox27.Margin = new Padding(2);
+            groupBox27.Name = "groupBox27";
+            groupBox27.Padding = new Padding(2);
+            groupBox27.Size = new Size(202, 95);
+            groupBox27.TabIndex = 177;
+            groupBox27.TabStop = false;
+            groupBox27.Text = "ShakeSort";
+            // 
+            // btnShakeDescAr
+            // 
+            btnShakeDescAr.Location = new Point(9, 59);
+            btnShakeDescAr.Margin = new Padding(2);
+            btnShakeDescAr.Name = "btnShakeDescAr";
+            btnShakeDescAr.Size = new Size(159, 23);
+            btnShakeDescAr.TabIndex = 114;
+            btnShakeDescAr.Text = "Descendente";
+            btnShakeDescAr.UseVisualStyleBackColor = true;
+            btnShakeDescAr.Click += btnShakeDescAr_Click;
+            // 
+            // btnShakeAscAr
+            // 
+            btnShakeAscAr.Location = new Point(9, 30);
+            btnShakeAscAr.Margin = new Padding(2);
+            btnShakeAscAr.Name = "btnShakeAscAr";
+            btnShakeAscAr.Size = new Size(159, 23);
+            btnShakeAscAr.TabIndex = 113;
+            btnShakeAscAr.Text = "Ascendente";
+            btnShakeAscAr.UseVisualStyleBackColor = true;
+            btnShakeAscAr.Click += btnShakeAscAr_Click;
+            // 
+            // groupBox28
+            // 
+            groupBox28.Anchor = AnchorStyles.None;
+            groupBox28.Controls.Add(btnQuickDesc);
+            groupBox28.Controls.Add(btnQuickAsc);
+            groupBox28.Location = new Point(237, 157);
+            groupBox28.Margin = new Padding(2);
+            groupBox28.Name = "groupBox28";
+            groupBox28.Padding = new Padding(2);
+            groupBox28.Size = new Size(202, 95);
+            groupBox28.TabIndex = 176;
+            groupBox28.TabStop = false;
+            groupBox28.Text = "QuickSort";
+            // 
+            // btnQuickDesc
+            // 
+            btnQuickDesc.Location = new Point(9, 59);
+            btnQuickDesc.Margin = new Padding(2);
+            btnQuickDesc.Name = "btnQuickDesc";
+            btnQuickDesc.Size = new Size(159, 23);
+            btnQuickDesc.TabIndex = 114;
+            btnQuickDesc.Text = "Descendente";
+            btnQuickDesc.UseVisualStyleBackColor = true;
+            btnQuickDesc.Click += btnQuickDesc_Click;
+            // 
+            // btnQuickAsc
+            // 
+            btnQuickAsc.Location = new Point(9, 30);
+            btnQuickAsc.Margin = new Padding(2);
+            btnQuickAsc.Name = "btnQuickAsc";
+            btnQuickAsc.Size = new Size(159, 23);
+            btnQuickAsc.TabIndex = 113;
+            btnQuickAsc.Text = "Ascendente";
+            btnQuickAsc.UseVisualStyleBackColor = true;
+            btnQuickAsc.Click += btnQuickAsc_Click;
+            // 
+            // groupBox29
+            // 
+            groupBox29.Anchor = AnchorStyles.None;
+            groupBox29.Controls.Add(btnBubbleDesc);
+            groupBox29.Controls.Add(btnBubbleAscAr);
+            groupBox29.Location = new Point(18, 157);
+            groupBox29.Margin = new Padding(2);
+            groupBox29.Name = "groupBox29";
+            groupBox29.Padding = new Padding(2);
+            groupBox29.Size = new Size(202, 95);
+            groupBox29.TabIndex = 175;
+            groupBox29.TabStop = false;
+            groupBox29.Text = "BubbleSort";
+            // 
+            // btnBubbleDesc
+            // 
+            btnBubbleDesc.Location = new Point(9, 59);
+            btnBubbleDesc.Margin = new Padding(2);
+            btnBubbleDesc.Name = "btnBubbleDesc";
+            btnBubbleDesc.Size = new Size(159, 23);
+            btnBubbleDesc.TabIndex = 114;
+            btnBubbleDesc.Text = "Descendente";
+            btnBubbleDesc.UseVisualStyleBackColor = true;
+            btnBubbleDesc.Click += btnBubbleDesc_Click;
+            // 
+            // btnBubbleAscAr
+            // 
+            btnBubbleAscAr.Location = new Point(9, 30);
+            btnBubbleAscAr.Margin = new Padding(2);
+            btnBubbleAscAr.Name = "btnBubbleAscAr";
+            btnBubbleAscAr.Size = new Size(159, 23);
+            btnBubbleAscAr.TabIndex = 113;
+            btnBubbleAscAr.Text = "Ascendente";
+            btnBubbleAscAr.UseVisualStyleBackColor = true;
+            btnBubbleAscAr.Click += btnBubbleAscAr_Click;
+            // 
+            // groupBox30
+            // 
+            groupBox30.Anchor = AnchorStyles.None;
+            groupBox30.Controls.Add(btnSelectionDescAr);
+            groupBox30.Controls.Add(btnSelctionAscAr);
+            groupBox30.Location = new Point(237, 43);
+            groupBox30.Margin = new Padding(2);
+            groupBox30.Name = "groupBox30";
+            groupBox30.Padding = new Padding(2);
+            groupBox30.Size = new Size(187, 95);
+            groupBox30.TabIndex = 175;
+            groupBox30.TabStop = false;
+            groupBox30.Text = "Selection Sort";
+            // 
+            // btnSelectionDescAr
+            // 
+            btnSelectionDescAr.Location = new Point(9, 59);
+            btnSelectionDescAr.Margin = new Padding(2);
+            btnSelectionDescAr.Name = "btnSelectionDescAr";
+            btnSelectionDescAr.Size = new Size(159, 23);
+            btnSelectionDescAr.TabIndex = 114;
+            btnSelectionDescAr.Text = "Descendente";
+            btnSelectionDescAr.UseVisualStyleBackColor = true;
+            btnSelectionDescAr.Click += btnSelectionDescAr_Click;
+            // 
+            // btnSelctionAscAr
+            // 
+            btnSelctionAscAr.Location = new Point(9, 30);
+            btnSelctionAscAr.Margin = new Padding(2);
+            btnSelctionAscAr.Name = "btnSelctionAscAr";
+            btnSelctionAscAr.Size = new Size(159, 23);
+            btnSelctionAscAr.TabIndex = 113;
+            btnSelctionAscAr.Text = "Ascendente";
+            btnSelctionAscAr.UseVisualStyleBackColor = true;
+            btnSelctionAscAr.Click += btnSelctionAscAr_Click;
+            // 
+            // groupBox31
+            // 
+            groupBox31.Anchor = AnchorStyles.None;
+            groupBox31.Controls.Add(btnHeapDescAr);
+            groupBox31.Controls.Add(btnHeapAscAr);
+            groupBox31.Location = new Point(18, 43);
+            groupBox31.Margin = new Padding(2);
+            groupBox31.Name = "groupBox31";
+            groupBox31.Padding = new Padding(2);
+            groupBox31.Size = new Size(202, 95);
+            groupBox31.TabIndex = 174;
+            groupBox31.TabStop = false;
+            groupBox31.Text = "HeapSort";
+            // 
+            // btnHeapDescAr
+            // 
+            btnHeapDescAr.Location = new Point(9, 59);
+            btnHeapDescAr.Margin = new Padding(2);
+            btnHeapDescAr.Name = "btnHeapDescAr";
+            btnHeapDescAr.Size = new Size(159, 23);
+            btnHeapDescAr.TabIndex = 114;
+            btnHeapDescAr.Text = "Descendente";
+            btnHeapDescAr.UseVisualStyleBackColor = true;
+            btnHeapDescAr.Click += btnHeapDescAr_Click;
+            // 
+            // btnHeapAscAr
+            // 
+            btnHeapAscAr.Location = new Point(9, 30);
+            btnHeapAscAr.Margin = new Padding(2);
+            btnHeapAscAr.Name = "btnHeapAscAr";
+            btnHeapAscAr.Size = new Size(159, 23);
+            btnHeapAscAr.TabIndex = 113;
+            btnHeapAscAr.Text = "Ascendente";
+            btnHeapAscAr.UseVisualStyleBackColor = true;
+            btnHeapAscAr.Click += btnHeapAscAr_Click;
+            // 
+            // groupBox24
+            // 
+            groupBox24.Anchor = AnchorStyles.None;
+            groupBox24.AutoSize = true;
+            groupBox24.BackColor = Color.FromArgb(239, 241, 243);
+            groupBox24.Controls.Add(dgEmpleadosAr);
+            groupBox24.Controls.Add(txtBuscarAr);
+            groupBox24.Controls.Add(txtDireccionAr);
+            groupBox24.Controls.Add(txtEdadAr);
+            groupBox24.Controls.Add(txtTelefonoAr);
+            groupBox24.Controls.Add(txtApellidoAr);
+            groupBox24.Controls.Add(txtNombreArbol);
+            groupBox24.Controls.Add(dataGridView1);
+            groupBox24.Controls.Add(txtBuscarArbol);
+            groupBox24.Controls.Add(label20);
+            groupBox24.Controls.Add(label21);
+            groupBox24.Controls.Add(label22);
+            groupBox24.Controls.Add(label23);
+            groupBox24.Controls.Add(label24);
+            groupBox24.Controls.Add(label25);
+            groupBox24.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox24.Location = new Point(478, 115);
+            groupBox24.Margin = new Padding(2);
+            groupBox24.Name = "groupBox24";
+            groupBox24.Padding = new Padding(2);
+            groupBox24.Size = new Size(750, 1175);
+            groupBox24.TabIndex = 173;
+            groupBox24.TabStop = false;
+            groupBox24.Text = "Datos del Empleado";
+            // 
+            // dgEmpleadosAr
+            // 
+            dgEmpleadosAr.AllowUserToAddRows = false;
+            dataGridViewCellStyle19.BackColor = Color.White;
+            dgEmpleadosAr.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dgEmpleadosAr.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgEmpleadosAr.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgEmpleadosAr.BackgroundColor = Color.White;
+            dgEmpleadosAr.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgEmpleadosAr.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14, dataGridViewTextBoxColumn15 });
+            dgEmpleadosAr.GridColor = Color.FromArgb(0, 50, 73);
+            dgEmpleadosAr.Location = new Point(48, 203);
+            dgEmpleadosAr.Margin = new Padding(5, 6, 5, 6);
+            dgEmpleadosAr.Name = "dgEmpleadosAr";
+            dgEmpleadosAr.ReadOnly = true;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = Color.White;
+            dataGridViewCellStyle20.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle20.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.True;
+            dgEmpleadosAr.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dgEmpleadosAr.RowHeadersWidth = 51;
+            dataGridViewCellStyle21.BackColor = Color.FromArgb(154, 209, 212);
+            dataGridViewCellStyle21.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle21.ForeColor = Color.Black;
+            dgEmpleadosAr.RowsDefaultCellStyle = dataGridViewCellStyle21;
+            dgEmpleadosAr.Size = new Size(658, 269);
+            dgEmpleadosAr.TabIndex = 172;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.HeaderText = "Apellido";
+            dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.HeaderText = "Teléfono";
+            dataGridViewTextBoxColumn13.MinimumWidth = 6;
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            dataGridViewTextBoxColumn14.HeaderText = "Dirección";
+            dataGridViewTextBoxColumn14.MinimumWidth = 6;
+            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            dataGridViewTextBoxColumn15.HeaderText = "Edad";
+            dataGridViewTextBoxColumn15.MinimumWidth = 6;
+            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // txtBuscarAr
+            // 
+            txtBuscarAr.Location = new Point(193, 146);
+            txtBuscarAr.Margin = new Padding(2);
+            txtBuscarAr.Name = "txtBuscarAr";
+            txtBuscarAr.Size = new Size(326, 23);
+            txtBuscarAr.TabIndex = 167;
+            // 
+            // txtDireccionAr
+            // 
+            txtDireccionAr.Location = new Point(82, 97);
+            txtDireccionAr.Margin = new Padding(2);
+            txtDireccionAr.Name = "txtDireccionAr";
+            txtDireccionAr.Size = new Size(447, 23);
+            txtDireccionAr.TabIndex = 166;
+            // 
+            // txtEdadAr
+            // 
+            txtEdadAr.Location = new Point(627, 97);
+            txtEdadAr.Margin = new Padding(2);
+            txtEdadAr.Name = "txtEdadAr";
+            txtEdadAr.Size = new Size(79, 23);
+            txtEdadAr.TabIndex = 165;
+            // 
+            // txtTelefonoAr
+            // 
+            txtTelefonoAr.Location = new Point(627, 40);
+            txtTelefonoAr.Margin = new Padding(2);
+            txtTelefonoAr.Name = "txtTelefonoAr";
+            txtTelefonoAr.Size = new Size(79, 23);
+            txtTelefonoAr.TabIndex = 164;
+            // 
+            // txtApellidoAr
+            // 
+            txtApellidoAr.Location = new Point(301, 42);
+            txtApellidoAr.Margin = new Padding(2);
+            txtApellidoAr.Name = "txtApellidoAr";
+            txtApellidoAr.Size = new Size(121, 23);
+            txtApellidoAr.TabIndex = 163;
+            // 
+            // txtNombreArbol
+            // 
+            txtNombreArbol.Location = new Point(73, 42);
+            txtNombreArbol.Margin = new Padding(2);
+            txtNombreArbol.Name = "txtNombreArbol";
+            txtNombreArbol.Size = new Size(108, 23);
+            txtNombreArbol.TabIndex = 162;
+            txtNombreArbol.TextChanged += textBox10_TextChanged;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridViewCellStyle22.BackColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
+            dataGridView1.GridColor = Color.FromArgb(0, 50, 73);
+            dataGridView1.Location = new Point(7, 234);
+            dataGridView1.Margin = new Padding(5, 6, 5, 6);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = Color.White;
+            dataGridViewCellStyle23.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle23.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle24.BackColor = Color.FromArgb(154, 209, 212);
+            dataGridViewCellStyle24.Font = new Font("Lucida Bright", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle24.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridView1.Size = new Size(452, 0);
+            dataGridView1.TabIndex = 171;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "Nombre";
+            dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "Apellido";
+            dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "Teléfono";
+            dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "Dirección";
+            dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "Edad";
+            dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // txtBuscarArbol
+            // 
+            txtBuscarArbol.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassPlus;
+            txtBuscarArbol.IconColor = Color.Black;
+            txtBuscarArbol.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            txtBuscarArbol.Location = new Point(540, 132);
+            txtBuscarArbol.Margin = new Padding(2);
+            txtBuscarArbol.Name = "txtBuscarArbol";
+            txtBuscarArbol.Size = new Size(71, 56);
+            txtBuscarArbol.TabIndex = 161;
+            txtBuscarArbol.UseVisualStyleBackColor = true;
+            txtBuscarArbol.Click += txtBuscarArbol_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.BackColor = Color.FromArgb(242, 244, 243);
+            label20.Location = new Point(6, 97);
+            label20.Margin = new Padding(2, 0, 2, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(69, 17);
+            label20.TabIndex = 159;
+            label20.Text = "Dirección";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.BackColor = Color.FromArgb(242, 244, 243);
+            label21.Location = new Point(548, 95);
+            label21.Margin = new Padding(2, 0, 2, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(42, 17);
+            label21.TabIndex = 158;
+            label21.Text = "Edad";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.BackColor = Color.FromArgb(242, 244, 243);
+            label22.Location = new Point(548, 40);
+            label22.Margin = new Padding(2, 0, 2, 0);
+            label22.Name = "label22";
+            label22.Size = new Size(62, 17);
+            label22.TabIndex = 157;
+            label22.Text = "Teléfono";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.BackColor = Color.FromArgb(242, 244, 243);
+            label23.Location = new Point(212, 43);
+            label23.Margin = new Padding(2, 0, 2, 0);
+            label23.Name = "label23";
+            label23.Size = new Size(61, 17);
+            label23.TabIndex = 156;
+            label23.Text = "Apellido";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.BackColor = Color.FromArgb(242, 244, 243);
+            label24.Location = new Point(6, 144);
+            label24.Margin = new Padding(2, 0, 2, 0);
+            label24.Name = "label24";
+            label24.Size = new Size(136, 17);
+            label24.TabIndex = 155;
+            label24.Text = "Buscar por Nombre:";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.BackColor = Color.FromArgb(242, 244, 243);
+            label25.Location = new Point(6, 45);
+            label25.Margin = new Padding(2, 0, 2, 0);
+            label25.Name = "label25";
+            label25.Size = new Size(61, 17);
+            label25.TabIndex = 154;
+            label25.Text = "Nombre";
+            // 
+            // label26
+            // 
+            label26.Anchor = AnchorStyles.None;
+            label26.AutoSize = true;
+            label26.Font = new Font("Century Gothic", 21.91304F, FontStyle.Bold);
+            label26.ForeColor = Color.Black;
+            label26.Location = new Point(526, 56);
+            label26.Margin = new Padding(2, 0, 2, 0);
+            label26.Name = "label26";
+            label26.Size = new Size(269, 37);
+            label26.TabIndex = 171;
+            label26.Text = "Nuevo Empleado";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Anchor = AnchorStyles.None;
+            pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
+            pictureBox6.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox6.Location = new Point(412, 28);
+            pictureBox6.Margin = new Padding(2);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(109, 86);
+            pictureBox6.TabIndex = 172;
+            pictureBox6.TabStop = false;
             // 
             // tabPage4
             // 
@@ -1812,7 +2630,7 @@
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             BackColor = Color.FromArgb(112, 162, 136);
-            ClientSize = new Size(1327, 917);
+            ClientSize = new Size(1327, 749);
             Controls.Add(tabControl1);
             Margin = new Padding(2);
             Name = "RegistroOFC";
@@ -1865,6 +2683,26 @@
             groupBox9.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            groupBox33.ResumeLayout(false);
+            groupBox33.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            groupBox32.ResumeLayout(false);
+            groupBox32.PerformLayout();
+            groupBox25.ResumeLayout(false);
+            groupBox26.ResumeLayout(false);
+            groupBox27.ResumeLayout(false);
+            groupBox28.ResumeLayout(false);
+            groupBox29.ResumeLayout(false);
+            groupBox30.ResumeLayout(false);
+            groupBox31.ResumeLayout(false);
+            groupBox24.ResumeLayout(false);
+            groupBox24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgEmpleadosAr).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -2002,5 +2840,66 @@
         private GroupBox groupBox22;
         private Button button17;
         private Button button18;
+        private GroupBox groupBox25;
+        private GroupBox groupBox26;
+        private Button btnShellDescAr;
+        private Button btnShellAscAr;
+        private GroupBox groupBox27;
+        private Button btnShakeDescAr;
+        private Button btnShakeAscAr;
+        private GroupBox groupBox28;
+        private Button btnQuickDesc;
+        private Button btnQuickAsc;
+        private GroupBox groupBox29;
+        private Button btnBubbleDesc;
+        private Button btnBubbleAscAr;
+        private GroupBox groupBox30;
+        private Button btnSelectionDescAr;
+        private Button btnSelctionAscAr;
+        private GroupBox groupBox31;
+        private Button btnHeapDescAr;
+        private Button btnHeapAscAr;
+        private GroupBox groupBox24;
+        private TextBox txtBuscarAr;
+        private TextBox txtDireccionAr;
+        private TextBox txtEdadAr;
+        private TextBox txtTelefonoAr;
+        private TextBox txtApellidoAr;
+        private TextBox txtNombreArbol;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private FontAwesome.Sharp.IconButton txtBuscarArbol;
+        private Label label20;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label25;
+        private Label label26;
+        private PictureBox pictureBox6;
+        private GroupBox groupBox32;
+        private RadioButton rbArbolAVL;
+        private Button btnLimpiarArbol;
+        private RadioButton rbArbolBinario;
+        private GroupBox groupBox33;
+        private Label label27;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox8;
+        private Button btnEliminarArbol;
+        private Button btnAgregarArbol;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private Label label28;
+        private DataGridView dgEmpleadosAr;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private TextBox txtRefEliminarAr;
     }
 }
