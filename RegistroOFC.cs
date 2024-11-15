@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ProyectoED.ListasDobles;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ProyectoED.ProyectoDS
 {
@@ -25,6 +26,8 @@ namespace ProyectoED.ProyectoDS
         private CircularQueue colascirculares;
         private ListaSimple ListaSimple;
         private ListasDobles listaDoble;
+        private ArbolBinario arbolBinario;
+
         public RegistroOFC()
         {
             InitializeComponent();
@@ -34,6 +37,7 @@ namespace ProyectoED.ProyectoDS
             rbCircularesColas.Enabled = true;
             rbStacks.Enabled = true;
             rbSimpleColas.Enabled = true;
+            arbolBinario = new ArbolBinario();
             ControlesFormulario(false);
 
         }
@@ -149,6 +153,30 @@ namespace ProyectoED.ProyectoDS
             };
         }
 
+        private Employee CrearEmpleadoLista()
+        {
+            return new Employee
+            {
+                nombreE = txtNombreLista.Text.Trim(),
+                apellidoE = txtApellidoLista.Text.Trim(),
+                direccionE = txtDireccionLista.Text.Trim(),
+                telefonoE = int.Parse(txtTelefonoLista.Text.Trim()),
+                edadE = int.Parse(txtEdadLista.Text.Trim())
+            };
+        }
+
+        private Employee CrearEmpleadoAr()
+        {
+            return new Employee
+            {
+                nombreE = txtNombreArbol.Text.Trim(),
+                apellidoE = txtApellidoAr.Text.Trim(),
+                direccionE = txtDireccionAr.Text.Trim(),
+                telefonoE = int.Parse(txtTelefonoAr.Text.Trim()),
+                edadE = int.Parse(txtEdadAr.Text.Trim())
+            };
+        }
+
         #endregion
         #region Controles
         private void DesactivarRadioButton(bool activar)
@@ -183,6 +211,16 @@ namespace ProyectoED.ProyectoDS
             txtDireccion.Text = string.Empty;
             txtEdad.Text = string.Empty;
             txtTelefono.Text = string.Empty;
+            txtApellidoLista.Text = string.Empty;
+            txtNombreLista.Text = string.Empty;
+            txtDireccionLista.Text = string.Empty;
+            txtEdadLista.Text = string.Empty;
+            txtTelefonoLista.Text = string.Empty;
+            txtNombreArbol.Text = string.Empty;
+            txtApellidoAr.Text = string.Empty;
+            txtDireccionAr.Text = string.Empty;
+            txtTelefonoAr.Text = string.Empty;
+            txtEdadAr.Text = string.Empty;
         }
         private void ControlesFormulario(bool activar)
         {
@@ -220,6 +258,57 @@ namespace ProyectoED.ProyectoDS
             }
             return true;
         }
+
+        private bool ValidarFormularioLista()
+        {
+            if (string.IsNullOrEmpty(txtNombreLista.Text) || string.IsNullOrEmpty(txtApellidoLista.Text) ||
+                string.IsNullOrEmpty(txtDireccionLista.Text) || string.IsNullOrEmpty(txtEdadLista.Text) || string.IsNullOrEmpty(txtTelefonoLista.Text))
+            {
+                MessageBox.Show("Debe completar los campos solicitados", "Aviso", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (!int.TryParse(txtEdadLista.Text.Trim(), out edad) || edad < 18)
+            {
+                MessageBox.Show("El empleado debe ser mayor de 18 años y la edad debe ser un número válido.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+
+            if (!int.TryParse(txtTelefonoLista.Text.Trim(), out telefono) || telefono <= 0)
+            {
+                MessageBox.Show("El teléfono debe ser un número entero positivo.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+            return true;
+        }
+
+        private bool ValidarFormularioArboles()
+        {
+            if (string.IsNullOrEmpty(txtNombreArbol.Text) || string.IsNullOrEmpty(txtApellidoAr.Text) || string.IsNullOrEmpty(txtDireccionAr.Text) ||
+                string.IsNullOrEmpty(txtEdadAr.Text) || string.IsNullOrEmpty(txtTelefonoAr.Text))
+            {
+                MessageBox.Show("Debe completar los campos solicitados", "Aviso", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (!int.TryParse(txtEdadAr.Text.Trim(), out edad) || edad < 18)
+            {
+                MessageBox.Show("El empleado debe ser mayor de 18 años y la edad debe ser un número válido.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+
+            if (!int.TryParse(txtTelefonoAr.Text.Trim(), out telefono) || telefono <= 0)
+            {
+                MessageBox.Show("El teléfono debe ser un número entero positivo.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+            return true;
+        }
+
         #endregion
         #region Pilas y Colas
         public void Agregar(string nombre, string apellido, string direccion, int telefono, int edad)
@@ -365,7 +454,7 @@ namespace ProyectoED.ProyectoDS
         //Métodos para mostrar listas
         private void MostrarListaDoble()
         {
-            dgEmpleados.Rows.Clear();
+            dgLista.Rows.Clear();
             NodoDoble actual = listaDoble.ObtenerCabeza();
 
             if (actual == null)
@@ -376,7 +465,7 @@ namespace ProyectoED.ProyectoDS
 
             while (actual != null)
             {
-                dgEmpleados.Rows.Add(
+                dgLista.Rows.Add(
                     actual.Empleado.nombreE,
                     actual.Empleado.apellidoE,
                     actual.Empleado.telefonoE,
@@ -388,7 +477,7 @@ namespace ProyectoED.ProyectoDS
         }
         private void MostrarListaSimple()
         {
-            dgEmpleados.Rows.Clear();
+            dgLista.Rows.Clear();
             Nodo actual = ListaSimple.ObtenerCabeza();
 
             if (actual == null)
@@ -399,7 +488,7 @@ namespace ProyectoED.ProyectoDS
 
             while (actual != null)
             {
-                dgEmpleados.Rows.Add(
+                dgLista.Rows.Add(
                     actual.Empleado.nombreE,
                     actual.Empleado.apellidoE,
                     actual.Empleado.telefonoE,
@@ -414,8 +503,8 @@ namespace ProyectoED.ProyectoDS
         {
             if (rbListasSimples.Checked)
             {
-                if (!ValidarFormulario()) return;
-                Employee empleado = CrearEmpleado();
+                if (!ValidarFormularioLista()) return;
+                Employee empleado = CrearEmpleadoLista();
                 ListaSimple.agregarInicio(empleado);
                 MostrarListaSimple();
                 LimpiarControles();
@@ -424,8 +513,8 @@ namespace ProyectoED.ProyectoDS
             else
                 if (rbListasDobles.Checked)
             {
-                if (!ValidarFormulario()) return;
-                Employee empleado = CrearEmpleado();
+                if (!ValidarFormularioLista()) return;
+                Employee empleado = CrearEmpleadoLista();
                 listaDoble.AgregarInicio(empleado);
                 MostrarListaDoble();
                 LimpiarControles();
@@ -441,8 +530,8 @@ namespace ProyectoED.ProyectoDS
                 txtReferenciaAgregar.Focus();
                 return;
             }
-            if (!ValidarFormulario()) return;
-            Employee empleado = CrearEmpleado();
+            if (!ValidarFormularioLista()) return;
+            Employee empleado = CrearEmpleadoLista();
             if (rbListasSimples.Checked)
             {
                 ListaSimple.AgregarAntes(empleado, txtReferenciaAgregar.Text);
@@ -465,8 +554,8 @@ namespace ProyectoED.ProyectoDS
                 txtReferenciaAgregar.Focus();
                 return;
             }
-            if (!ValidarFormulario()) return;
-            Employee empleado = CrearEmpleado();
+            if (!ValidarFormularioLista()) return;
+            Employee empleado = CrearEmpleadoLista();
             if (rbListasSimples.Checked)
             {
                 ListaSimple.AgregarDespues(empleado, txtReferenciaAgregar.Text);
@@ -483,8 +572,8 @@ namespace ProyectoED.ProyectoDS
         }
         private void btnFinalAgregar_Click(object sender, EventArgs e)
         {
-            if (!ValidarFormulario()) return;
-            Employee empleado = CrearEmpleado();
+            if (!ValidarFormularioLista()) return;
+            Employee empleado = CrearEmpleadoLista();
             if (rbListasSimples.Checked)
             {
                 ListaSimple.AgregarFinal(empleado);
@@ -924,6 +1013,12 @@ namespace ProyectoED.ProyectoDS
                 }
                 empleadosArray = empleadosList.ToArray();
             }
+            else if (rbArbolBinario.Checked == true)
+            {
+                List<Employee> empleadosList = new List<Employee>();
+                arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleadosList.Add);
+                empleadosArray = empleadosList.ToArray();
+            }
         }
 
         private void MostrarEmpleadosEnGrid()
@@ -948,6 +1043,17 @@ namespace ProyectoED.ProyectoDS
                     if (empleado.nombreE != null)
                     {
                         dgLista.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+                    }
+                }
+            }
+            else if (rbArbolBinario.Checked == true)
+            {
+                dgEmpleadosAr.Rows.Clear();
+                foreach (var empleado in empleadosArray)
+                {
+                    if (empleado.nombreE != null)
+                    {
+                        dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
                     }
                 }
             }
@@ -1105,7 +1211,7 @@ namespace ProyectoED.ProyectoDS
 
         }
 
-       
+
 
         private void btnLimpiarSeleccion_Click(object sender, EventArgs e)
         {
@@ -1155,64 +1261,101 @@ namespace ProyectoED.ProyectoDS
             if (rbStacks.Checked || rbSimpleColas.Checked || rbCircularesColas.Checked)
             {
                 int rowCount = dgEmpleados.Rows.Count;
-                int[] edades = new int[rowCount];
+
+                List<DataGridViewRow> filas = new List<DataGridViewRow>();
                 for (int i = 0; i < rowCount; i++)
                 {
-                    edades[i] = Convert.ToInt32(dgEmpleados.Rows[i].Cells[4].Value);
+                    filas.Add(dgEmpleados.Rows[i]);
                 }
 
-
-                for (int i = 0; i < edades.Length - 1; i++)
+                for (int i = 0; i < filas.Count - 1; i++)
                 {
-                    for (int j = 0; j < edades.Length - i - 1; j++)
+                    for (int j = 0; j < filas.Count - i - 1; j++)
                     {
-                        bool condicion = ascendente ? edades[j] > edades[j + 1] : edades[j] < edades[j + 1];
+                        int edad1 = Convert.ToInt32(filas[j].Cells[4].Value);
+                        int edad2 = Convert.ToInt32(filas[j + 1].Cells[4].Value);
+
+                        bool condicion = ascendente ? edad1 > edad2 : edad1 < edad2;
                         if (condicion)
                         {
-
-                            int temp = edades[j];
-                            edades[j] = edades[j + 1];
-                            edades[j + 1] = temp;
+                            var temp = filas[j];
+                            filas[j] = filas[j + 1];
+                            filas[j + 1] = temp;
                         }
                     }
                 }
 
-
-                for (int i = 0; i < rowCount; i++)
+                dgEmpleados.Rows.Clear();
+                foreach (var fila in filas)
                 {
-                    dgEmpleados.Rows[i].Cells[4].Value = edades[i];
+                    dgEmpleados.Rows.Add(fila);
                 }
             }
             else if (rbListasSimples.Checked || rbListasDobles.Checked)
             {
                 int rowCount = dgLista.Rows.Count;
-                int[] edades = new int[rowCount];
+                List<DataGridViewRow> filas = new List<DataGridViewRow>();
                 for (int i = 0; i < rowCount; i++)
                 {
-                    edades[i] = Convert.ToInt32(dgLista.Rows[i].Cells[4].Value);
+                    filas.Add(dgLista.Rows[i]);
                 }
 
-
-                for (int i = 0; i < edades.Length - 1; i++)
+                for (int i = 0; i < filas.Count - 1; i++)
                 {
-                    for (int j = 0; j < edades.Length - i - 1; j++)
+                    for (int j = 0; j < filas.Count - i - 1; j++)
                     {
-                        bool condicion = ascendente ? edades[j] > edades[j + 1] : edades[j] < edades[j + 1];
+                        int edad1 = Convert.ToInt32(filas[j].Cells[4].Value);
+                        int edad2 = Convert.ToInt32(filas[j + 1].Cells[4].Value);
+
+                        bool condicion = ascendente ? edad1 > edad2 : edad1 < edad2;
                         if (condicion)
                         {
-
-                            int temp = edades[j];
-                            edades[j] = edades[j + 1];
-                            edades[j + 1] = temp;
+                            var temp = filas[j];
+                            filas[j] = filas[j + 1];
+                            filas[j + 1] = temp;
                         }
                     }
                 }
 
+                dgLista.Rows.Clear();
+                foreach (var fila in filas)
+                {
+                    dgLista.Rows.Add(fila);
+                }
+            }
+            else if (rbArbolBinario.Checked == true)
+            {
 
+                int rowCount = dgEmpleadosAr.Rows.Count;
+                List<DataGridViewRow> filas = new List<DataGridViewRow>();
                 for (int i = 0; i < rowCount; i++)
                 {
-                    dgLista.Rows[i].Cells[4].Value = edades[i];
+                    filas.Add(dgEmpleadosAr.Rows[i]);
                 }
+
+                for (int i = 0; i < filas.Count - 1; i++)
+                {
+                    for (int j = 0; j < filas.Count - i - 1; j++)
+                    {
+                        int edad1 = Convert.ToInt32(filas[j].Cells[4].Value);
+                        int edad2 = Convert.ToInt32(filas[j + 1].Cells[4].Value);
+
+                        bool condicion = ascendente ? edad1 > edad2 : edad1 < edad2;
+                        if (condicion)
+                        {
+                            var temp = filas[j];
+                            filas[j] = filas[j + 1];
+                            filas[j + 1] = temp;
+                        }
+                    }
+                }
+
+                dgEmpleadosAr.Rows.Clear();
+                foreach (var fila in filas)
+                {
+                    dgEmpleadosAr.Rows.Add(fila);
+                }
+            
             }
 
         }
@@ -1341,6 +1484,171 @@ namespace ProyectoED.ProyectoDS
                 MostrarEmpleadosEnGrid();
             }
         }
+        #endregion
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Arboles
+
+        public void MostrarDgArbolbi()
+        {
+            dgEmpleadosAr.Rows.Clear();
+            arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleado =>
+            {
+                dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+            });
+        }
+
+        private void btnAgregarArbol_Click(object sender, EventArgs e)
+        {
+            if (rbArbolBinario.Checked == true)
+            {
+                Employee empleado = CrearEmpleadoAr();
+                ValidarFormularioArboles();
+                arbolBinario.Insertar(empleado);
+                MostrarDgArbolbi();
+                LimpiarControles();
+            }
+        }
+
+        private void btnEliminarArbol_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRefEliminarAr.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del empleado para eliminar");
+                txtRefEliminarAr.Focus();
+                return;
+            }
+
+            string nombreEliminar = txtRefEliminarAr.Text;
+            arbolBinario.Eliminar(nombreEliminar);
+            txtRefEliminarAr.Text = string.Empty;
+            MostrarDgArbolbi();
+        }
+
+        private void txtBuscarArbol_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscarAr.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del empleado");
+                txtBuscarAr.Focus();
+                return;
+            }
+            string nombreBuscar = txtBuscarAr.Text;
+            Employee? empleadoEncontrado = arbolBinario.Buscar(nombreBuscar);
+
+            if (empleadoEncontrado != null)
+            {
+                MessageBox.Show("Empleado encontrado: " + empleadoEncontrado?.nombreE);
+                txtBuscarAr.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Empleado no encontrado.");
+            }
+        }
+
+        private void btnHeapAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                HeapSort(empleadosArray, true);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnHeapDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                HeapSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnSelctionAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                SelectionSortAscendente(empleadosArray);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnSelectionDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                SelectionSortDescendente(empleadosArray);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnBubbleAscAr_Click(object sender, EventArgs e)
+        {
+            OrdenarEdadesBuble(true);
+        }
+
+        private void btnBubbleDesc_Click(object sender, EventArgs e)
+        {
+            OrdenarEdadesBuble(false);
+        }
+
+        private void btnQuickAsc_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                QuickSort(empleadosArray, true);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnQuickDesc_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                QuickSort(empleadosArray, false);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShakeAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                ShakeSort(empleadosArray, true);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShakeDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                ShakeSort(empleadosArray, false);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
         #endregion
     }
 
