@@ -1020,6 +1020,12 @@ namespace ProyectoED.ProyectoDS
                 arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleadosList.Add);
                 empleadosArray = empleadosList.ToArray();
             }
+            else if (rbArbolBinario.Checked == true)
+            {
+                List<Employee> empleadosList = new List<Employee>();
+                arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleadosList.Add);
+                empleadosArray = empleadosList.ToArray();
+            }
         }
 
         private void MostrarEmpleadosEnGrid()
@@ -1485,6 +1491,171 @@ namespace ProyectoED.ProyectoDS
                 MostrarEmpleadosEnGrid();
             }
         }
+        #endregion
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Arboles
+
+        public void MostrarDgArbolbi()
+        {
+            dgEmpleadosAr.Rows.Clear();
+            arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleado =>
+            {
+                dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+            });
+        }
+
+        private void btnAgregarArbol_Click(object sender, EventArgs e)
+        {
+            if (rbArbolBinario.Checked == true)
+            {
+                Employee empleado = CrearEmpleadoAr();
+                ValidarFormularioArboles();
+                arbolBinario.Insertar(empleado);
+                MostrarDgArbolbi();
+                LimpiarControles();
+            }
+        }
+
+        private void btnEliminarArbol_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRefEliminarAr.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del empleado para eliminar");
+                txtRefEliminarAr.Focus();
+                return;
+            }
+
+            string nombreEliminar = txtRefEliminarAr.Text;
+            arbolBinario.Eliminar(nombreEliminar);
+            txtRefEliminarAr.Text = string.Empty;
+            MostrarDgArbolbi();
+        }
+
+        private void txtBuscarArbol_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscarAr.Text))
+            {
+                MessageBox.Show("Ingrese el nombre del empleado");
+                txtBuscarAr.Focus();
+                return;
+            }
+            string nombreBuscar = txtBuscarAr.Text;
+            Employee? empleadoEncontrado = arbolBinario.Buscar(nombreBuscar);
+
+            if (empleadoEncontrado != null)
+            {
+                MessageBox.Show("Empleado encontrado: " + empleadoEncontrado?.nombreE);
+                txtBuscarAr.Text = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Empleado no encontrado.");
+            }
+        }
+
+        private void btnHeapAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                HeapSort(empleadosArray, true);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnHeapDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                HeapSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnSelctionAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                SelectionSortAscendente(empleadosArray);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnSelectionDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                SelectionSortDescendente(empleadosArray);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnBubbleAscAr_Click(object sender, EventArgs e)
+        {
+            OrdenarEdadesBuble(true);
+        }
+
+        private void btnBubbleDesc_Click(object sender, EventArgs e)
+        {
+            OrdenarEdadesBuble(false);
+        }
+
+        private void btnQuickAsc_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                QuickSort(empleadosArray, true);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnQuickDesc_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                QuickSort(empleadosArray, false);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShakeAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                ShakeSort(empleadosArray, true);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShakeDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+            if (empleadosArray != null)
+            {
+                ShakeSort(empleadosArray, false);
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
         #endregion
 
         private void textBox10_TextChanged(object sender, EventArgs e)
