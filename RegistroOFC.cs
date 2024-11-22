@@ -28,6 +28,7 @@ namespace ProyectoED.ProyectoDS
         private ListasDobles listaDoble;
         private ArbolBinario arbolBinario;
         private ArbolAVL arbolAVL;
+        private List<Employee> empleadosList;
         public RegistroOFC()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace ProyectoED.ProyectoDS
             rbSimpleColas.Enabled = true;
             arbolBinario = new ArbolBinario();
             arbolAVL = new ArbolAVL();
+            empleadosList = new List<Employee>();
             ControlesFormulario(false);
 
         }
@@ -153,6 +155,17 @@ namespace ProyectoED.ProyectoDS
                 edadE = int.Parse(txtEdad.Text.Trim())
             };
         }
+        private Employee CrearEmpleadoGrafo()
+        {
+            return new Employee
+            {
+                nombreE = txtNombreGrafo.Text.Trim(),
+                apellidoE = txtApellidoGrafo.Text.Trim(),
+                direccionE = txtDireccionGrafo.Text.Trim(),
+                telefonoE = int.Parse(txtTelefonoGrafo.Text.Trim()),
+                edadE = int.Parse(txtEdadGrafo.Text.Trim())
+            };
+        }
 
         private Employee CrearEmpleadoLista()
         {
@@ -222,6 +235,11 @@ namespace ProyectoED.ProyectoDS
             txtDireccionAr.Text = string.Empty;
             txtTelefonoAr.Text = string.Empty;
             txtEdadAr.Text = string.Empty;
+            txtNombreGrafo.Text = string.Empty;
+            txtApellidoGrafo.Text = string.Empty;
+            txtDireccionGrafo.Text = string.Empty;
+            txtEdadGrafo.Text = string.Empty;
+            txtTelefonoGrafo.Text = string.Empty;
         }
         private void ControlesFormulario(bool activar)
         {
@@ -302,6 +320,30 @@ namespace ProyectoED.ProyectoDS
             }
 
             if (!int.TryParse(txtTelefonoAr.Text.Trim(), out telefono) || telefono <= 0)
+            {
+                MessageBox.Show("El teléfono debe ser un número entero positivo.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+            return true;
+        }
+        private bool ValidarFormularioGrafos()
+        {
+            if (string.IsNullOrEmpty(txtNombreGrafo.Text) || string.IsNullOrEmpty(txtApellidoGrafo.Text) || string.IsNullOrEmpty(txtDireccionGrafo.Text) ||
+                string.IsNullOrEmpty(txtEdadGrafo.Text) || string.IsNullOrEmpty(txtTelefonoGrafo.Text))
+            {
+                MessageBox.Show("Debe completar los campos solicitados", "Aviso", MessageBoxButtons.OK);
+                return false;
+            }
+
+            if (!int.TryParse(txtEdadGrafo.Text.Trim(), out edad) || edad < 18)
+            {
+                MessageBox.Show("El empleado debe ser mayor de 18 años y la edad debe ser un número válido.", "Aviso", MessageBoxButtons.OK);
+                LimpiarControles();
+                return false;
+            }
+
+            if (!int.TryParse(txtTelefonoGrafo.Text.Trim(), out telefono) || telefono <= 0)
             {
                 MessageBox.Show("El teléfono debe ser un número entero positivo.", "Aviso", MessageBoxButtons.OK);
                 LimpiarControles();
@@ -901,7 +943,27 @@ namespace ProyectoED.ProyectoDS
 
         }
         #region  Ordenamientos
+        public void ShellSort(Employee[] empleados, bool ascendente)
+        {
+            int n = empleados.Length;
+            for (int gap = n / 2; gap > 0; gap /= 2)
+            {
+                for (int i = gap; i < n; i++)
+                {
+                    Employee temp = empleados[i];
+                    int j = i;
 
+                    while (j >= gap &&
+                           (ascendente ? empleados[j - gap].edadE > temp.edadE : empleados[j - gap].edadE < temp.edadE))
+                    {
+                        empleados[j] = empleados[j - gap];
+                        j -= gap;
+                    }
+
+                    empleados[j] = temp;
+                }
+            }
+        }
         public void HeapSort(Employee[] empleados, bool ascendente)
         {
             int n = empleados.Length;
@@ -1020,6 +1082,12 @@ namespace ProyectoED.ProyectoDS
                 arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleadosList.Add);
                 empleadosArray = empleadosList.ToArray();
             }
+            else if (rbArbolAVL.Checked == true)
+            {
+                List<Employee> empleadosList = new List<Employee>();
+                arbolAVL.RecorrerInOrden(arbolAVL.raiz, empleadosList.Add);
+                empleadosArray = empleadosList.ToArray();
+            }
         }
 
         private void MostrarEmpleadosEnGrid()
@@ -1055,6 +1123,39 @@ namespace ProyectoED.ProyectoDS
                     if (empleado.nombreE != null)
                     {
                         dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+                    }
+                }
+            }
+            else if (rbArbolAVL.Checked == true)
+            {
+                dgEmpleadosAr.Rows.Clear();
+                foreach (var empleado in empleadosArray)
+                {
+                    if (empleado.nombreE != null)
+                    {
+                        dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+                    }
+                }
+            }
+            else if (rbDijiskstra.Checked == true)
+            {
+                dgEmpleadosGrafo.Rows.Clear();
+                foreach (var empleado in empleadosArray)
+                {
+                    if (empleado.nombreE != null)
+                    {
+                        dgEmpleadosGrafo.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+                    }
+                }
+            }
+            else if (rbFloyd.Checked == true)
+            {
+                dgEmpleadosGrafo.Rows.Clear();
+                foreach (var empleado in empleadosArray)
+                {
+                    if (empleado.nombreE != null)
+                    {
+                        dgEmpleadosGrafo.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
                     }
                 }
             }
@@ -1491,6 +1592,92 @@ namespace ProyectoED.ProyectoDS
         {
 
         }
+        private void button16_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, true);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShellAscAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        private void btnShellDescAr_Click(object sender, EventArgs e)
+        {
+            ObtenerEmpleadosArray();
+
+            if (empleadosArray != null)
+            {
+                ShellSort(empleadosArray, false);
+
+                MostrarEmpleadosEnGrid();
+            }
+        }
+
+        #region Arboles
+
+        public void MostrarDgArbolbi()
+        {
+            dgEmpleadosAr.Rows.Clear();
+            arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleado =>
+            {
+                dgEmpleadosAr.Rows.Add(empleado.nombreE, empleado.apellidoE, empleado.telefonoE, empleado.direccionE, empleado.edadE);
+            });
+        }
+
+        #endregion
+
+
 
         #region Arboles
 
@@ -1498,7 +1685,7 @@ namespace ProyectoED.ProyectoDS
         {
             dgEmpleadosAr.Rows.Clear();
 
-          
+
             if (rbArbolBinario.Checked)
             {
                 arbolBinario.RecorrerInOrden(arbolBinario.raiz, empleado =>
@@ -1517,19 +1704,18 @@ namespace ProyectoED.ProyectoDS
 
         private void btnAgregarArbol_Click(object sender, EventArgs e)
         {
-            Employee empleado = CrearEmpleadoAr();
             if (!ValidarFormularioArboles())
             {
                 return;
             }
-
+            Employee empleado = CrearEmpleadoAr();
             if (rbArbolBinario.Checked)
             {
                 arbolBinario.Insertar(empleado);
             }
             else if (rbArbolAVL.Checked)
             {
-              
+
                 arbolAVL.Insertar(empleado);
                 MostrarDgArbol();
             }
@@ -1696,15 +1882,254 @@ namespace ProyectoED.ProyectoDS
 
         #endregion
 
-        private void txtNombreAr_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void rbArbolBinario_CheckedChanged(object sender, EventArgs e)
         {
+            MessageBox.Show("Árbol Binario Creado Correctamente", "Árboles");
+            rbArbolAVL.Enabled = false;
 
         }
+
+        private void rbArbolAVL_CheckedChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Árbol AVL Creado Correctamente", "Árboles");
+            rbArbolBinario.Enabled = false;
+        }
+
+        private void btnLimpiarArbol_Click(object sender, EventArgs e)
+        {
+            rbArbolBinario.Enabled = true;
+            rbArbolAVL.Enabled = true;
+            rbArbolAVL.Checked = false;
+            rbArbolBinario.Checked = false;
+        }
+        public class ComboBoxItem
+        {
+            public int Index { get; set; }
+            public int Edad { get; set; }
+
+            public override string ToString()
+            {
+                return Edad.ToString();
+            }
+        }
+        #region Grafos
+        public Grafo CrearGrafoDesdeEdades(List<Employee> empleados)
+        {
+            int numEmpleados = empleados.Count;
+            Grafo grafo = new Grafo(numEmpleados);
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                for (int j = 0; j < numEmpleados; j++)
+                {
+                    if (i != j)
+                    {
+                        int diferenciaEdad = Math.Abs(empleados[i].edadE - empleados[j].edadE);
+                        grafo.AgregarArista(i, j, diferenciaEdad);
+                    }
+                }
+            }
+
+            return grafo;
+        }
+
+        private Grafo grafoGlobal;
+
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+        }
+        private bool ValidarEntrada(int origen, int destino, int numEmpleados)
+        {
+            if (origen < 0 || origen >= numEmpleados || destino < 0 || destino >= numEmpleados)
+            {
+                MessageBox.Show("Los índices ingresados están fuera de rango.");
+                return false;
+            }
+            return true;
+        }
+        private void CargarEdadesEnComboBox()
+        {
+            cbOrigen.Items.Clear();
+            cbDestino.Items.Clear();
+
+            for (int i = 0; i < empleadosList.Count; i++)
+            {
+                var item = new ComboBoxItem
+                {
+                    Index = i,
+                    Edad = empleadosList[i].edadE
+                };
+
+                cbOrigen.Items.Add(item);
+                cbDestino.Items.Add(item);
+            }
+        }
+        private void MostrarMatrizEnGrid(int[,] matriz)
+        {
+            dgEmpleadosGrafo.Rows.Clear();
+            dgEmpleadosGrafo.Columns.Clear();
+
+            int numEmpleados = matriz.GetLength(0);
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                dgEmpleadosGrafo.Columns.Add($"Col{i}", empleadosList[i].nombreE);
+            }
+
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                string[] fila = new string[numEmpleados];
+                for (int j = 0; j < numEmpleados; j++)
+                {
+                    fila[j] = matriz[i, j] == int.MaxValue / 2 ? "∞" : matriz[i, j].ToString();
+                }
+                dgEmpleadosGrafo.Rows.Add(fila);
+                dgEmpleadosGrafo.Rows[i].HeaderCell.Value = empleadosList[i].nombreE;
+            }
+        }
+        private void ActualizarDataGridViewEmpleados()
+        {
+
+            dgEmpleadosGrafo.Rows.Clear();
+
+            int[,] matrizAdyacencia = grafoGlobal.ObtenerMatrizAdyacencia();
+            foreach (var empleado in empleadosList)
+            {
+                dgEmpleadosGrafo.Rows.Add(
+                    empleado.nombreE,
+                    empleado.apellidoE,
+                    empleado.direccionE,
+                    empleado.telefonoE,
+                    empleado.edadE
+                );
+            }
+            //for (int i = 0; i < empleadosList.Count; i++)
+            //{
+            //    string[] fila = new string[empleadosList.Count];
+            //    for (int j = 0; j < empleadosList.Count; j++)
+            //    {
+            //        fila[j] = matrizAdyacencia[i, j] == int.MaxValue / 2 ? "∞" : matrizAdyacencia[i, j].ToString();
+            //    }
+            //    dgEmpleadosGrafo.Rows.Add(fila);
+
+            //}
+        }
+        private void button23_Click(object sender, EventArgs e)
+        {
+            if (!ValidarFormularioGrafos())
+            {
+                return;
+            }
+            Employee empleado = CrearEmpleadoGrafo();
+            empleadosList.Add(empleado);
+            grafoGlobal = CrearGrafoDesdeEdades(empleadosList);
+            ActualizarDataGridViewEmpleados();
+            CargarEdadesEnComboBox();
+            LimpiarControles();
+
+        }
+
+        private string MostrarMatrizComoTexto(int[,] matriz)
+        {
+            int numEmpleados = matriz.GetLength(0);
+            string resultado = "";
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                for (int j = 0; j < numEmpleados; j++)
+                {
+                    resultado += matriz[i, j] == int.MaxValue / 2 ? "∞" : matriz[i, j].ToString();
+                    resultado += "\t";
+                }
+                resultado += "\n";
+            }
+
+            return resultado;
+        }
+        private void EliminarNodo(string input)
+        {
+            int indice;
+
+            if (int.TryParse(input, out indice))
+            {
+                if (indice < 0 || indice >= empleadosList.Count)
+                {
+                    MessageBox.Show("El índice está fuera de rango.");
+                    return;
+                }
+            }
+            else
+            {
+                indice = empleadosList.FindIndex(emp => emp.nombreE.Equals(input, StringComparison.OrdinalIgnoreCase));
+                if (indice == -1)
+                {
+                    MessageBox.Show("No se encontró un empleado con ese nombre.");
+                    return;
+                }
+            }
+
+            empleadosList.RemoveAt(indice);
+
+            grafoGlobal = CrearGrafoDesdeEdades(empleadosList);
+
+            ActualizarDataGridViewEmpleados();
+            CargarEdadesEnComboBox();
+
+            MessageBox.Show("Nodo eliminado correctamente.");
+        }
+        private void button22_Click(object sender, EventArgs e)
+        {
+            string input = txtEliminarGrafo.Text.Trim();
+            if (string.IsNullOrEmpty(input))
+            {
+                MessageBox.Show("Por favor ingresa un índice o nombre válido para eliminar.");
+                return;
+            }
+
+            EliminarNodo(input);
+            txtEliminarGrafo.Clear();
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+            if (cbOrigen.SelectedItem == null || cbDestino.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor seleccione valores de origen y destino.");
+                return;
+            }
+
+            var origenItem = (ComboBoxItem)cbOrigen.SelectedItem;
+            var destinoItem = (ComboBoxItem)cbDestino.SelectedItem;
+
+            int origen = origenItem.Index;
+            int destino = destinoItem.Index;
+
+            if (!ValidarEntrada(origen, destino, empleadosList.Count))
+                return;
+
+            if (grafoGlobal == null)
+                grafoGlobal = CrearGrafoDesdeEdades(empleadosList);
+
+            if (rbDijiskstra.Checked)
+            {
+                int[] distancias = grafoGlobal.Dijkstra(origen);
+                txtResultado.Text = distancias[destino].ToString();
+            }
+            else if (rbFloyd.Checked)
+            {
+                int[,] matrizDistancias = grafoGlobal.FloydWarshall();
+                txtResultado.Text = matrizDistancias[origen, destino].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Por favor selecciona un tipo de cálculo.");
+            }
+        }
+
+        #endregion
     }
 
 }
